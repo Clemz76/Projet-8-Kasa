@@ -12,11 +12,14 @@ body {
 
 .page {
    padding: 10px 0px;
-   width: 1240px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
 }
 
 header {
-   width: 1240px;
+   width: 90%;
 }
 
 header nav {
@@ -29,7 +32,6 @@ header nav {
 
 header img {
    height: 40px;
-   margin-right: 20px;
 }
 
 header ul {
@@ -43,10 +45,6 @@ header ul {
 header a {
    text-decoration: none;
    color: black;
-}
-
-header a:hover {
-   text-decoration: underline;
 }
 
 footer {
@@ -69,4 +67,42 @@ footer img {
 
 footer div {
    font-size: 14px;
+}
+
+.dropdown {
+   border-radius: 5px;
+   margin-bottom: 10px;
+   width: 45%;
+}
+
+.dropdown-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 20px;
+   cursor: pointer;
+   background-color: #ff6060;
+   border-radius: 5px;
+   color: white;
+}
+
+.dropdown-header h2 {
+   margin: 0;
+   font-size: 1.2em;
+}
+
+.dropdown-arrow {
+   width: 20px;
+   transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+   transform: rotate(180deg);
+}
+
+.dropdown-content {
+   background-color: #f7f7f7;
+   padding: 10px 20px;
+   font-size: 1em;
+   line-height: 1.5;
 }

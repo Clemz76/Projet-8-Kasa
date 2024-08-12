@@ -12,7 +12,16 @@ const Home = () => {
          </div>
          <div className="locations">
             {logementList.map((logement) => (
-               <Link to={"/location/" + logement.id} className="location">
+               <Link
+                  to={"/location/" + logement.id}
+                  className="location"
+                  key={logement.id}
+               >
+                  <img
+                     src={logement.cover}
+                     alt={logement.title}
+                     className="locationImage"
+                  />
                   <div className="locationTitle">{logement.title}</div>
                </Link>
             ))}
