@@ -1,0 +1,27 @@
+.about {
+   width: 80%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.dropdownContainer {
+   width: 100%;
+   margin-bottom: 25px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 15px;
+}
+
+.bannerAbout {
+   background-image: url("/src/assets/images/banner_about.png");
+   box-shadow: none;
+   margin-bottom: 35px;
+}
+
+.dropdownAbout {
+   width: 80%;
+}

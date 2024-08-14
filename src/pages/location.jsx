@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "../css/location.css";
 import "../css/main.css";
 import logementList from "../assets/components/logements";
-import Dropdown from "../assets/components/dropdown"; // Ensure the correct import
+import Dropdown from "../assets/components/dropdown";
 import arrowRight from "../assets/images/arrow_right.png";
 import arrowLeft from "../assets/images/arrow_left.png";
 
@@ -40,35 +40,25 @@ const Location = () => {
                </button>
             </div>
          </div>
-         <div className="logement-title">
-            <h1>{logement.title}</h1>
-            <p>{logement.location}</p>
-         </div>
-         <div className="logement-tags">
-            {logement.tags.map((tag, index) => (
-               <span key={index} className="tag">
-                  {tag}
-               </span>
-            ))}
-         </div>
          <div className="logement-info">
-            <Dropdown title="Description">
-               <p>{logement.description}</p>
-            </Dropdown>
-            <Dropdown title="Équipements">
-               <ul>
-                  {logement.equipments.map((equipment, index) => (
-                     <li key={index}>{equipment}</li>
-                  ))}
-               </ul>
-            </Dropdown>
-         </div>
-         <div className="logement-host">
+            <div className="logement-title">
+               <h1>{logement.title}</h1>
+               <p>{logement.location}</p>
+            </div>
             <div className="host-info">
-               <img src={logement.host.picture} alt={logement.host.name} />
                <div>
                   <h3>{logement.host.name}</h3>
                </div>
+               <img src={logement.host.picture} alt={logement.host.name} />
+            </div>
+         </div>
+         <div className="logement-info">
+            <div className="logement-tags">
+               {logement.tags.map((tag, index) => (
+                  <span key={index} className="tag">
+                     {tag}
+                  </span>
+               ))}
             </div>
             <div className="rating">
                {Array.from({ length: 5 }, (_, index) => (
@@ -91,6 +81,18 @@ const Location = () => {
                   </span>
                ))}
             </div>
+         </div>
+         <div className="logement-info">
+            <Dropdown title="Description">
+               <p>{logement.description}</p>
+            </Dropdown>
+            <Dropdown title="Équipements">
+               <ul>
+                  {logement.equipments.map((equipment, index) => (
+                     <li key={index}>{equipment}</li>
+                  ))}
+               </ul>
+            </Dropdown>
          </div>
       </div>
    );

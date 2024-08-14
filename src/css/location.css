@@ -1,23 +1,24 @@
 .logement-title {
-   margin-bottom: 20px;
+   margin-bottom: 0px;
 }
 
 .logement-title h1 {
    font-size: 2em;
    color: #ff6060;
    margin: 0;
+   margin-top: 10px;
    font-weight: 500;
 }
 
 .logement-title p {
    font-size: 1.2em;
    color: black;
-   margin: 10px 0;
+   margin: 0;
 }
 
 .logement-gallery {
    width: 100%;
-   margin-bottom: 20px;
+   margin-bottom: 0px;
    display: flex;
    justify-content: center;
    position: relative;
@@ -25,7 +26,13 @@
 
 .slider {
    position: relative;
+   height: 415px;
    width: 80%;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 20px;
 }
 
 .main-image {
@@ -65,7 +72,6 @@
 .logement-tags {
    display: flex;
    gap: 10px;
-   margin-bottom: 20px;
 }
 
 .tag {
@@ -77,23 +83,16 @@
 }
 
 .logement-info {
-   width: 100%;
+   width: 80%;
    display: flex;
    justify-content: space-between;
-   margin-bottom: 20px;
-}
-
-.logement-host {
-   width: 100%;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   margin-top: 20px;
+   margin: 12px;
 }
 
 .host-info {
    display: flex;
    align-items: center;
+   gap: 15px;
 }
 
 .host-info img {
@@ -105,12 +104,17 @@
 }
 
 .host-info h3 {
-   font-size: 1.2em;
+   font-size: 18px;
+   font-weight: 500;
+   line-height: 25.67px;
+   text-align: right;
+   color: #ff6060;
 }
 
 .rating {
    display: flex;
    align-items: center;
+   gap: 15px;
 }
 
 .rating .star {

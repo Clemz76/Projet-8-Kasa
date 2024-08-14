@@ -7,6 +7,7 @@ import Error from "./error.jsx";
 import Header from "../assets/components/header.jsx";
 import Footer from "../assets/components/footer.jsx";
 import Location from "./location.jsx";
+import About from "./about.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
    <React.StrictMode>
@@ -14,7 +15,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
          <Header />
          <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="about" element={<about />} />
+            <Route path="about" element={<About />} />
             <Route path="location/:id" element={<Location />} />
             <Route path="*" element={<Error />} />
          </Routes>
