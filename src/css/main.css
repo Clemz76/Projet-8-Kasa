@@ -18,6 +18,7 @@ body {
    justify-content: center;
    align-items: center;
    flex-direction: column;
+   width: 90%;
 }
 
 header {
@@ -49,6 +50,10 @@ header a {
    color: black;
 }
 
+.active {
+   text-decoration: underline;
+}
+
 footer {
    background-color: black;
    color: white;
@@ -64,12 +69,12 @@ footer {
 }
 
 footer img {
-   height: 22px;
-   margin-bottom: 10px;
+   height: 34px;
+   margin: 22px;
 }
 
 footer div {
-   font-size: 14px;
+   font-size: 18px;
 }
 
 .banner {
@@ -88,6 +93,7 @@ footer div {
    border-radius: 20px;
    overflow: hidden;
    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+   max-width: 1500px;
 }
 
 .banner::before {
@@ -103,16 +109,17 @@ footer div {
 }
 
 .banner h1 {
+   font-size: 48px;
    position: relative;
    z-index: 2;
    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
       1px 1px 0 #000, 0 2px 4px rgba(0, 0, 0, 0.5);
+   margin: 20px;
 }
 
 .dropdown {
    border-radius: 5px;
    margin-bottom: 10px;
-   width: 45%;
 }
 
 .dropdown-header {
@@ -145,4 +152,35 @@ footer div {
    padding: 10px 20px;
    font-size: 1em;
    line-height: 1.5;
+   max-width: 100%;
+}
+
+@media only screen and (max-width: 580px) {
+   header ul {
+      gap: 25px;
+   }
+   footer img {
+      margin-top: 30px;
+      margin-bottom: 0px;
+   }
+   footer div {
+      font-size: 11px;
+      width: 30%;
+      margin-bottom: 30px;
+   }
+   .banner {
+      height: 110px;
+   }
+   .banner h1 {
+      font-size: 24px;
+   }
+}
+
+@media only screen and (max-width: 1060px) {
+   .banner {
+      height: 160px;
+   }
+   .banner h1 {
+      font-size: 36px;
+   }
 }

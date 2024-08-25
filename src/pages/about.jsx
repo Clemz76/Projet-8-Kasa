@@ -8,28 +8,28 @@ const About = () => {
       <div className="about">
          <div className="banner bannerAbout"></div>
          <div className="dropdownContainer">
-            <Dropdown className="dropdown dropdownAbout" title="Fiabilité">
+            <Dropdown className="dropdown" title="Fiabilité">
                <p>
                   Les annonces postées sur Kasa garantissent une fiabilité
                   totale. Les photos sont conformes aux logements, et toutes les
                   informations sont régulièrement vérifiées par nos équipes.
                </p>
             </Dropdown>
-            <Dropdown className="dropdown dropdownAbout" title="Respect">
+            <Dropdown className="dropdown" title="Respect">
                <p>
                   La bienveillance fait partie des valeurs fondatrices de Kasa.
                   Tout comportement discriminatoire ou de perturbation du
                   voisinage entraînera une exclusion de notre plateforme.
                </p>
             </Dropdown>
-            <Dropdown className="dropdown dropdownAbout" title="Service">
+            <Dropdown className="dropdown" title="Service">
                <p>
                   La bienveillance fait partie des valeurs fondatrices de Kasa.
                   Tout comportement discriminatoire ou de perturbation du
                   voisinage entraînera une exclusion de notre plateforme.
                </p>
             </Dropdown>
-            <Dropdown className="dropdown dropdownAbout" title="Sécurité">
+            <Dropdown className="dropdown" title="Sécurité">
                <p>
                   La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes
                   que pour les voyageurs, chaque logement correspond aux

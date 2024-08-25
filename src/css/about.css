@@ -1,5 +1,5 @@
 .about {
-   width: 80%;
+   width: 90%;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -8,7 +8,6 @@
 
 .dropdownContainer {
    width: 100%;
-   margin-bottom: 25px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -22,6 +21,9 @@
    margin-bottom: 35px;
 }
 
-.dropdownAbout {
-   width: 80%;
+.dropdown {
+   width: 90%;
+   @media only screen and (max-width: 580px) {
+      width: 100%;
+   }
 }

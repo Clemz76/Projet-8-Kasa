@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "../css/location.css";
 import "../css/main.css";
 import logementList from "../assets/components/logements";
@@ -9,8 +9,26 @@ import arrowLeft from "../assets/images/arrow_left.png";
 
 const Location = () => {
    const { id } = useParams();
+   const navigate = useNavigate();
    const logement = logementList.find((item) => item.id === id);
    const [currentSlide, setCurrentSlide] = useState(0);
+   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1060);
+
+   useEffect(() => {
+      if (!logement) {
+         navigate("/error");
+         return;
+      }
+
+      const handleResize = () => {
+         setIsMobile(window.innerWidth <= 1060);
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+   }, [logement, navigate]);
+
+   if (!logement) return null;
 
    const nextSlide = () => {
       setCurrentSlide((prev) => (prev + 1) % logement.pictures.length);
@@ -40,49 +58,108 @@ const Location = () => {
                </button>
             </div>
          </div>
-         <div className="logement-info">
-            <div className="logement-title">
-               <h1>{logement.title}</h1>
-               <p>{logement.location}</p>
-            </div>
-            <div className="host-info">
-               <div>
-                  <h3>{logement.host.name}</h3>
+
+         {isMobile ? (
+            <>
+               <div className="logement-info">
+                  <div className="logement-title">
+                     <h1>{logement.title}</h1>
+                     <p>{logement.location}</p>
+                  </div>
                </div>
-               <img src={logement.host.picture} alt={logement.host.name} />
-            </div>
-         </div>
-         <div className="logement-info">
-            <div className="logement-tags">
-               {logement.tags.map((tag, index) => (
-                  <span key={index} className="tag">
-                     {tag}
-                  </span>
-               ))}
-            </div>
-            <div className="rating">
-               {Array.from({ length: 5 }, (_, index) => (
-                  <span key={index}>
+               <div className="logement-info">
+                  <div className="logement-tags">
+                     {logement.tags.map((tag, index) => (
+                        <span key={index} className="tag">
+                           {tag}
+                        </span>
+                     ))}
+                  </div>
+               </div>
+               <div className="logement-info">
+                  <div className="rating">
+                     {Array.from({ length: 5 }, (_, index) => (
+                        <span key={index}>
+                           <img
+                              src={
+                                 index < logement.rating
+                                    ? "/src/assets/images/star.png"
+                                    : "/src/assets/images/star_0.png"
+                              }
+                              alt={
+                                 index < logement.rating
+                                    ? "filled star"
+                                    : "unfilled star"
+                              }
+                              className={`star ${
+                                 index < logement.rating ? "filled" : "unfilled"
+                              }`}
+                           />
+                        </span>
+                     ))}
+                  </div>
+                  <div className="host-info">
+                     <div>
+                        <h3>{logement.host.name}</h3>
+                     </div>
                      <img
-                        src={
-                           index < logement.rating
-                              ? "/src/assets/images/star.png"
-                              : "/src/assets/images/star_0.png"
-                        }
-                        alt={
-                           index < logement.rating
-                              ? "filled star"
-                              : "unfilled star"
-                        }
-                        className={`star ${
-                           index < logement.rating ? "filled" : "unfilled"
-                        }`}
+                        src={logement.host.picture}
+                        alt={logement.host.name}
                      />
-                  </span>
-               ))}
-            </div>
-         </div>
-         <div className="logement-info">
+                  </div>
+               </div>
+            </>
+         ) : (
+            <>
+               <div className="logement-info">
+                  <div className="logement-title">
+                     <h1>{logement.title}</h1>
+                     <p>{logement.location}</p>
+                  </div>
+                  <div className="host-info">
+                     <div>
+                        <h3>{logement.host.name}</h3>
+                     </div>
+                     <img
+                        src={logement.host.picture}
+                        alt={logement.host.name}
+                     />
+                  </div>
+               </div>
+               <div className="logement-info">
+                  <div className="logement-tags">
+                     {logement.tags.map((tag, index) => (
+                        <span key={index} className="tag">
+                           {tag}
+                        </span>
+                     ))}
+                  </div>
+                  <div className="rating">
+                     {Array.from({ length: 5 }, (_, index) => (
+                        <span key={index}>
+                           <img
+                              src={
+                                 index < logement.rating
+                                    ? "/src/assets/images/star.png"
+                                    : "/src/assets/images/star_0.png"
+                              }
+                              alt={
+                                 index < logement.rating
+                                    ? "filled star"
+                                    : "unfilled star"
+                              }
+                              className={`star ${
+                                 index < logement.rating ? "filled" : "unfilled"
+                              }`}
+                           />
+                        </span>
+                     ))}
+                  </div>
+               </div>
+            </>
+         )}
+
+         <div className="logement-info dropdown-container">
             <Dropdown title="Description">
                <p>{logement.description}</p>
             </Dropdown>
